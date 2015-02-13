@@ -1,0 +1,21 @@
+{
+  "name": "angularvalidators",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "jshint-stylish": "^0.2.0",
+    "karma": "^0.12.31",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "karma start"
+  }
+}
