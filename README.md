@@ -74,7 +74,7 @@ I did not create validator. Validator was created and maintained by [Chris O'Har
 
 ### License
 
-Copyright (c) 2015 George Kaimakas
+Copyright (c) 2015 George Kaimakas <gkaimakas@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
