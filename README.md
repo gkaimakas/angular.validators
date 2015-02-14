@@ -19,6 +19,12 @@ This module was written using validator v3.30.0
 
     bower install angular.validator
     
+Include the module in your dependencies
+    
+    angular.module('myProject',[
+        'angular.validators'
+    ])
+    
 ### Supported functions
 
 Currently we support the following functions. 
