@@ -1,6 +1,6 @@
 {
   "name": "angular.validators",
-  "version": "3.30.1",
+  "version": "3.30.2",
   "homepage": "https://github.com/gkaimakas/angular.validators",
   "authors": [
     "gkaimakas <gkaimakas@gmail.com>"
@@ -12,7 +12,7 @@
     "angular-mocks": "~1.3.0",
     "angular-scenario": "~1.3.0"
   },
-  "appPath": "app",
+  "appPath": "src",
   "description": "Angular wrapper for validator by Chris O'Hara.",
   "main": "src/angular.validators.js",
   "keywords": [
@@ -21,7 +21,13 @@
     "validation",
     "validators",
     "node",
-    "chriso"
+    "chriso",
+    "is-email",
+    "is-ip",
+    "is-url",
+    "email",
+    "ip",
+    "url"
   ],
   "license": "MIT",
   "ignore": [

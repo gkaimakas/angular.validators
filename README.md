@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/angular.validators.svg)](http://badge.fury.io/js/angular.validators)
+[![Bower version](https://badge.fury.io/bo/angular.validators.svg)](http://badge.fury.io/bo/angular.validators)
+
 # angular.validators
 
 Angular wrapper for [validator](https://www.npmjs.com/package/validator) by [Chris O'Hara](https://github.com/chriso).

@@ -1,6 +1,6 @@
 {
-  "name": "angularvalidators",
-  "version": "0.0.0",
+  "name": "angular.validators",
+  "version": "3.30.2",
   "dependencies": {},
   "devDependencies": {
     "jasmine-core": "^2.2.0",
