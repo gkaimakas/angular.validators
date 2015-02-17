@@ -805,7 +805,7 @@ angular
     return {
       require: 'ngModel',
       link: function(scope, element, attrs, controller) {
-        controller.$validators.isDate = function(modelValue, viewValue) {
+        controller.$validators.isAfter = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
             return true;
           }
@@ -813,6 +813,22 @@ angular
             return validator.isAfter(viewValue, attrs.isAfter);
           }
           return validator.isAfter(viewValue);
+        };
+      }
+    };
+  }])
+  .directive('isBefore', ['nodeValidator', function(validator){
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, controller) {
+        controller.$validators.isBefore = function(modelValue, viewValue) {
+          if (controller.$isEmpty(modelValue)) {
+            return true;
+          }
+          if(attrs.isBefore !== ''){
+            return validator.isBefore(viewValue, attrs.isBefore);
+          }
+          return validator.isBefore(viewValue);
         };
       }
     };
