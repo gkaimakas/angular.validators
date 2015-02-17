@@ -854,6 +854,10 @@ angular
           if (controller.$isEmpty(modelValue)) {
             return true;
           }
+          var isbnVersion = parseInt(attrs.isIsbn);
+          if(isbnVersion === 10 || isbnVersion === 13){
+            return validator.isISBN(viewValue, isbnVersion);
+          }
           return validator.isISBN(viewValue);
         };
       }

@@ -55,7 +55,7 @@ isDate | is-date | check if the string is a date.
 isAfter | is-after | check if the string is a date that's after the specified date (defaults to now). | date
 isBefore | is-before | check if the string is a date that's before the specified date (defaults to now). | date
 isCreditCard | is-credit-card | check if the string is a credit card.
-isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13).
+isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13). | isbnVersion ( 10 || 13 )
 isJSON | is-json | check if the string is valid JSON (note: uses JSON.parse).
 isMultibyte | is-multibyte |  check if the string contains one or more multibyte chars.
 isAscii | is-ascii | check if the string contains ASCII chars only.
