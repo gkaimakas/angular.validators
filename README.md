@@ -33,12 +33,12 @@ Include the module in your dependencies
 Currently we support the following functions. 
 *All functions support only the default options of validator.*
 
-Validator function | Angular directive | Description
--------------------|-------------------|-------------
+Validator function | Angular directive | Description | Optional Arguments
+-------------------|-------------------|-------------|-------------------
 isEmail | is-email | check if the string is an email.
 isURL | is-url | check if the string is a URL.
 isFQDN | is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
-isIP | is-ip | check if the string is an IP (version 4 or 6).
+isIP | is-ip | check if the string is an IP (version 4 or 6). | ipVersion
 isAlpha | is-alpha |  check if the string contains only letters (a-zA-Z).
 isNumeric | is-numeric | check if the string contains only numbers.
 isAlphanumeric | is-alphanumeric | check if the string contains only letters and numbers.

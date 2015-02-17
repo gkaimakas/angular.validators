@@ -619,6 +619,10 @@ angular
           if (controller.$isEmpty(modelValue)) {
             return true;
           }
+          var ipVersion = attrs.isIp.toString();
+          if(ipVersion === "6" || ipVersion === "4") {
+            return validator.isIP(viewValue, ipVersion);
+          }
           return validator.isIP(viewValue);
         };
       }
