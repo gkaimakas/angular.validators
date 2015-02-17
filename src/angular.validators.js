@@ -801,6 +801,22 @@ angular
       }
     };
   }])
+  .directive('isAfter', ['nodeValidator', function(validator){
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, controller) {
+        controller.$validators.isDate = function(modelValue, viewValue) {
+          if (controller.$isEmpty(modelValue)) {
+            return true;
+          }
+          if(attrs.isAfter !== ''){
+            return validator.isAfter(viewValue, attrs.isAfter);
+          }
+          return validator.isAfter(viewValue);
+        };
+      }
+    };
+  }])
   .directive('isCreditCard', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',

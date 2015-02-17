@@ -52,6 +52,7 @@ isFloat | is-float | check if the string is a float.
 isNull | is-null | check if the string is null.
 isUUID | is-uuid | check if the string is a UUID (version 3, 4 or 5). | uuidVersion ( 3 || 4 || 5 )
 isDate | is-date | check if the string is a date.
+isAfter | is-after | check if the string is a date that's after the specified date (defaults to now). | date
 isCreditCard | is-credit-card | check if the string is a credit card.
 isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13).
 isJSON | is-json | check if the string is valid JSON (note: uses JSON.parse).
