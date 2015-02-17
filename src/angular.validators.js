@@ -779,6 +779,10 @@ angular
           if (controller.$isEmpty(modelValue)) {
             return true;
           }
+          var uuidVersion = parseInt(attrs.isUuid.toString());
+          if(uuidVersion === 3 || uuidVersion === 4 || uuidVersion === 5){
+            return validator.isUUID(viewValue, uuidVersion);
+          }
           return validator.isUUID(viewValue);
         };
       }

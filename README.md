@@ -38,7 +38,7 @@ Validator function | Angular directive | Description | Optional Arguments
 isEmail | is-email | check if the string is an email.
 isURL | is-url | check if the string is a URL.
 isFQDN | is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
-isIP | is-ip | check if the string is an IP (version 4 or 6). | ipVersion
+isIP | is-ip | check if the string is an IP (version 4 or 6). | ipVersion ( 4 || 6 )
 isAlpha | is-alpha |  check if the string contains only letters (a-zA-Z).
 isNumeric | is-numeric | check if the string contains only numbers.
 isAlphanumeric | is-alphanumeric | check if the string contains only letters and numbers.
@@ -50,7 +50,7 @@ isUppercase | is-uppercase | check if the string is uppercase.
 isInt | is-int | check if the string is an integer.
 isFloat | is-float | check if the string is a float.
 isNull | is-null | check if the string is null.
-isUUID | is-uuid | check if the string is a UUID (version 3, 4 or 5).
+isUUID | is-uuid | check if the string is a UUID (version 3, 4 or 5). | uuidVersion ( 3 || 4 || 5 )
 isDate | is-date | check if the string is a date.
 isCreditCard | is-credit-card | check if the string is a credit card.
 isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13).
