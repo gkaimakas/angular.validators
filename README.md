@@ -11,6 +11,7 @@ Angular wrapper for [validator](https://www.npmjs.com/package/validator) by [Chr
 + [Install](#install)
 + [Supported functions](#supported-functions)
 + [Use](#use)
++ [Changelog](#changelog)
 + [Disclaimer](#disclaimer)
 + [License](#license)
 
@@ -38,7 +39,7 @@ Validator function | Angular directive | Description | Optional Arguments
 isEmail | is-email | check if the string is an email.
 isURL | is-url | check if the string is a URL.
 isFQDN | is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
-isIP | is-ip | check if the string is an IP (version 4 or 6). | ipVersion ( 4 || 6 )
+isIP | is-ip | check if the string is an IP (version 4 or 6). | ipVersion ( 4 , 6 )
 isAlpha | is-alpha |  check if the string contains only letters (a-zA-Z).
 isNumeric | is-numeric | check if the string contains only numbers.
 isAlphanumeric | is-alphanumeric | check if the string contains only letters and numbers.
@@ -50,12 +51,12 @@ isUppercase | is-uppercase | check if the string is uppercase.
 isInt | is-int | check if the string is an integer.
 isFloat | is-float | check if the string is a float.
 isNull | is-null | check if the string is null.
-isUUID | is-uuid | check if the string is a UUID (version 3, 4 or 5). | uuidVersion ( 3 || 4 || 5 )
+isUUID | is-uuid | check if the string is a UUID (version 3, 4 or 5). | uuidVersion ( 3 , 4 , 5 )
 isDate | is-date | check if the string is a date.
 isAfter | is-after | check if the string is a date that's after the specified date (defaults to now). | date
 isBefore | is-before | check if the string is a date that's before the specified date (defaults to now). | date
 isCreditCard | is-credit-card | check if the string is a credit card.
-isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13). | isbnVersion ( 10 || 13 )
+isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13). | isbnVersion ( 10 , 13 )
 isJSON | is-json | check if the string is valid JSON (note: uses JSON.parse).
 isMultibyte | is-multibyte |  check if the string contains one or more multibyte chars.
 isAscii | is-ascii | check if the string contains ASCII chars only.
@@ -78,6 +79,10 @@ You can use multiple directives at once
     <form name="form">
       <input type="text" ng-model="value" name="value" is-alpha is-lowercase />
     </form>
+
+### Changelog
+
+v3.30.3 - new validators and some validation options where possible.
 
 ### Disclaimer
 
