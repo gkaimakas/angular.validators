@@ -84,6 +84,7 @@ You can use multiple directives at once
 ### Changelog
 
 v3.30.4 - isPhone validator with validator.js's locales + Greek landline and mobile validation.
+
 v3.30.3 - new validators and some validation options where possible.
 
 ### Disclaimer
