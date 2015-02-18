@@ -69,7 +69,8 @@ angular
         'en-ZA' : /^(\+?27|0)\d{9}$/,
         'en-AU' : /^(\+?61|0)4\d{8}/,
         'fr-FR' : /^(\+?33|0)[67]\d{8}$/,
-        'pt-PT' : /^(\+351)?9[1236]\d{7}$/
+        'pt-PT' : /^(\+351)?9[1236]\d{7}$/,
+        'el-GR' : /^(\+30)?((2\d{9})|(69\d{8}))$/
       };
 
       validator.extend = function (name, fn) {
@@ -813,6 +814,22 @@ angular
             return validator.isAfter(viewValue, attrs.isAfter);
           }
           return validator.isAfter(viewValue);
+        };
+      }
+    };
+  }])
+  .directive('isPhone', ['nodeValidator', function(validator){
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, controller) {
+        controller.$validators.isPhone = function(modelValue, viewValue) {
+          if (controller.$isEmpty(modelValue)) {
+            return true;
+          }
+          if(attrs.isPhone !== ''){
+            return validator.isMobilePhone(viewValue, attrs.isPhone);
+          }
+          return false;
         };
       }
     };

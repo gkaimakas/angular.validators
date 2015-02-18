@@ -57,6 +57,7 @@ isAfter | is-after | check if the string is a date that's after the specified da
 isBefore | is-before | check if the string is a date that's before the specified date (defaults to now). | date
 isCreditCard | is-credit-card | check if the string is a credit card.
 isISBN | is-isbn |  check if the string is an ISBN (version 10 or 13). | isbnVersion (10, 13 )
+isPhone | is-phone | check if the string is a mobile phone number | locale (zh-CN, en-ZA, en-AU, pt-PT, el-GR) For el-GR landline and mobile phones are validated
 isJSON | is-json | check if the string is valid JSON (note: uses JSON.parse).
 isMultibyte | is-multibyte |  check if the string contains one or more multibyte chars.
 isAscii | is-ascii | check if the string contains ASCII chars only.
