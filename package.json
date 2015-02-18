@@ -1,7 +1,9 @@
 {
   "name": "angular.validators",
-  "version": "3.30.4",
-  "dependencies": {},
+  "version": "3.30.5",
+  "dependencies": {
+    "grunt-cli": "^0.1.13"
+  },
   "devDependencies": {
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^0.2.0",

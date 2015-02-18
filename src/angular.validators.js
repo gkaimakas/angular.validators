@@ -573,6 +573,40 @@ angular
     return _this.validator;
 
   })
+  .directive('equals', ['nodeValidator', function (validator) {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, controller) {
+        controller.$validators.equals = function(modelValue, viewValue) {
+          if (controller.$isEmpty(modelValue)) {
+            return true;
+          }
+          return validator.equals(viewValue, attrs.equals);
+        };
+      }
+    };
+  }])
+  .directive('watchEquals', ['nodeValidator', function (validator) {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, controller) {
+        controller.$validators.watchEquals = function(modelValue, viewValue) {
+
+          scope.$watch(attrs.ngModel, function(){
+            if( viewValue != null && attrs.watchEquals != null){
+              controller.$setValidity("watchEquals", validator.equals(viewValue, attrs.watchEquals));
+            }
+          });
+
+          attrs.$observe('watchEquals', function(){
+            if( viewValue != null && attrs.watchEquals != null){
+              controller.$setValidity("watchEquals", validator.equals(viewValue, attrs.watchEquals));
+            }
+          });
+        };
+      }
+    };
+  }])
   .directive('isEmail', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',

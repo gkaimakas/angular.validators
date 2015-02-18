@@ -34,8 +34,10 @@ Include the module in your dependencies
 Currently we support the following functions. 
 *All functions support only the default options of validator.*
 
-Validator function | Angular directive | Description | Optional Arguments
+Validator function | Angular directive | Description | Arguments
 -------------------|-------------------|-------------|-------------------
+equals | equals | check if the string matches the comparison. | string
+not supported | watch-equals | check if the string matches the comparison. | ngModel
 isEmail | is-email | check if the string is an email.
 isURL | is-url | check if the string is a URL.
 isFQDN | is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
@@ -82,6 +84,14 @@ You can use multiple directives at once
     </form>
 
 ### Changelog
+
+v3.30.5 - equals, watchEquals validators. watchEquals can be used for password validation where two fields may change.
+Currently it must not be used as a circular watch, e.x :
+
+    
+  <input type="text" name="test1" ng-model="t.test1" watch-equals='{{t.test2}}'/>
+  <input type="text" name="test2" ng-model="t.test2" watch-equals='{{t.test1}}'/>
+  
 
 v3.30.4 - isPhone validator with validator.js's locales + Greek landline and mobile validation.
 
