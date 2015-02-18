@@ -88,9 +88,8 @@ You can use multiple directives at once
 v3.30.5 - equals, watchEquals validators. watchEquals can be used for password validation where two fields may change.
 Currently it must not be used as a circular watch, e.x :
 
-    
-  <input type="text" name="test1" ng-model="t.test1" watch-equals='{{t.test2}}'/>
-  <input type="text" name="test2" ng-model="t.test2" watch-equals='{{t.test1}}'/>
+    <input type="text" name="test1" ng-model="t.test1" watch-equals='{{t.test2}}'/>
+    <input type="text" name="test2" ng-model="t.test2" watch-equals='{{t.test1}}'/>
   
 
 v3.30.4 - isPhone validator with validator.js's locales + Greek landline and mobile validation.
