@@ -85,6 +85,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.30.6 - simplified file structure 
+
 v3.30.5 - equals, watchEquals validators. watchEquals can be used for password validation where two fields may change.
 Currently it must not be used as a circular watch, e.x :
 

@@ -1,6 +1,6 @@
 {
   "name": "angular.validators",
-  "version": "3.30.5",
+  "version": "3.30.6",
   "dependencies": {
     "grunt-cli": "^0.1.13"
   },

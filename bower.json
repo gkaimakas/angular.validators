@@ -1,6 +1,6 @@
 {
   "name": "angular.validators",
-  "version": "3.30.5",
+  "version": "3.30.6",
   "homepage": "https://github.com/gkaimakas/angular.validators",
   "authors": [
     "gkaimakas <gkaimakas@gmail.com>"
@@ -12,9 +12,8 @@
     "angular-mocks": "~1.3.0",
     "angular-scenario": "~1.3.0"
   },
-  "appPath": "src",
   "description": "Angular wrapper for validator by Chris O'Hara.",
-  "main": "src/angular.validators.js",
+  "main": "./angular.validators.js",
   "keywords": [
     "angular",
     "validator",
