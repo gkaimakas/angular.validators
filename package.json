@@ -19,5 +19,23 @@
   },
   "scripts": {
     "test": "karma start"
-  }
+  },
+  "keywords" : [
+    "angular",
+    "validator",
+    "validators",
+    "node validator",
+    "validator.js",
+    "chriso",
+    "directive",
+    "module",
+    "library",
+    "email",
+    "ip",
+    "alphanumeric",
+    "isbn",
+    "javascript",
+    "bower"
+  ],
+  "repository" : "https://github.com/gkaimakas/angular.validators"
 }
