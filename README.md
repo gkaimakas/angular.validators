@@ -17,7 +17,7 @@ Angular wrapper for [validator](https://www.npmjs.com/package/validator) by [Chr
 
 ### Validator version
 
-This module was written using validator v3.30.0
+This module was written using validator v3.33.0
 
 ### Install
 
@@ -84,6 +84,8 @@ You can use multiple directives at once
     </form>
 
 ### Changelog
+
+v3.33.0 - updated to validator.js v3.33.0
 
 v3.30.6 - simplified file structure 
 

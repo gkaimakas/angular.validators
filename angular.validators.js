@@ -22,9 +22,10 @@ angular
       }
     })('validator', function (validator) {
 
+
       'use strict';
 
-      validator = {version : '3.30.0'};
+      validator = { version: '3.33.0' };
 
       var emailAddress = /((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))/;
       var displayName = /([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~\.]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~\.]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\s)*/;
@@ -41,10 +42,10 @@ angular
         , ipv6 = /^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$/;
 
       var uuid = {
-        '3'   : /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i
-        , '4' : /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-        , '5' : /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-        , all : /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
+        '3': /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i
+        , '4': /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+        , '5': /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+        , all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
       };
 
       var alpha = /^[a-zA-Z]+$/
@@ -65,11 +66,12 @@ angular
       var base64 = /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$/;
 
       var phones = {
-        'zh-CN' : /^(\+?0?86\-?)?1[345789]\d{9}$/,
-        'en-ZA' : /^(\+?27|0)\d{9}$/,
-        'en-AU' : /^(\+?61|0)4\d{8}/,
-        'fr-FR' : /^(\+?33|0)[67]\d{8}$/,
-        'pt-PT' : /^(\+351)?9[1236]\d{7}$/,
+        'zh-CN': /^(\+?0?86\-?)?1[345789]\d{9}$/,
+        'en-ZA': /^(\+?27|0)\d{9}$/,
+        'en-AU': /^(\+?61|0)4\d{8}$/,
+        'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
+        'fr-FR': /^(\+?33|0)[67]\d{8}$/,
+        'pt-PT': /^(\+351)?9[1236]\d{7}$/,
         'el-GR' : /^(\+30)?((2\d{9})|(69\d{8}))$/
       };
 
@@ -143,7 +145,7 @@ angular
       };
 
       var default_email_options = {
-        allow_display_name : false
+        allow_display_name: false
       };
 
       validator.isEmail = function (str, options) {
@@ -153,11 +155,12 @@ angular
       };
 
       var default_url_options = {
-        protocols            : ['http', 'https', 'ftp']
-        , require_tld        : true
-        , require_protocol   : false
-        , allow_underscores  : false
-        , allow_trailing_dot : false
+        protocols: [ 'http', 'https', 'ftp' ]
+        , require_tld: true
+        , require_protocol: false
+        , allow_underscores: false
+        , allow_trailing_dot: false
+        , allow_protocol_relative_urls: false
       };
 
       validator.isURL = function (url, options) {
@@ -178,6 +181,8 @@ angular
           }
         } else if (options.require_protocol) {
           return false;
+        }  else if (options.allow_protocol_relative_urls && url.substr(0, 2) === '//') {
+          split[0] = url.substr(2);
         }
         url = split.join('://');
         split = url.split('#');
@@ -192,6 +197,7 @@ angular
         if (query && /\s/.test(query)) {
           return false;
         }
+
         split = url.split('/');
         url = split.shift();
         path = split.join('/');
@@ -255,9 +261,9 @@ angular
       };
 
       var default_fqdn_options = {
-        require_tld          : true
-        , allow_underscores  : false
-        , allow_trailing_dot : false
+        require_tld: true
+        , allow_underscores: false
+        , allow_trailing_dot: false
       };
 
       validator.isFQDN = function (str, options) {
@@ -430,11 +436,11 @@ angular
           if ((checksum % 11) === 0) {
             return !!sanitized;
           }
-        } else if (version === '13') {
+        } else  if (version === '13') {
           if (!isbn13Maybe.test(sanitized)) {
             return false;
           }
-          var factor = [1, 3];
+          var factor = [ 1, 3 ];
           for (i = 0; i < 12; i++) {
             checksum += factor[i % 2] * sanitized.charAt(i);
           }
@@ -445,11 +451,32 @@ angular
         return false;
       };
 
-      validator.isMobilePhone = function (str, locale) {
+      validator.isMobilePhone = function(str, locale) {
         if (locale in phones) {
           return phones[locale].test(str);
         }
         return false;
+      };
+
+      var default_currency_options = {
+        symbol: '$'
+        , require_symbol: false
+        , allow_space_after_symbol: false
+        , symbol_after_digits: false
+        , allow_negatives: true
+        , parens_for_negatives: false
+        , negative_sign_before_digits: false
+        , negative_sign_after_digits: false
+        , allow_negative_sign_placeholder: false
+        , thousands_separator: ','
+        , decimal_separator: '.'
+        , allow_space_after_digits: false
+      };
+
+      validator.isCurrency = function (str, options) {
+        options = merge(options, default_currency_options);
+
+        return currencyRegex(options).test(str);
       };
 
       validator.isJSON = function (str) {
@@ -531,7 +558,7 @@ angular
       };
 
       var default_normalize_email_options = {
-        lowercase : true
+        lowercase: true
       };
 
       validator.normalizeEmail = function (email, options) {
@@ -564,7 +591,55 @@ angular
         return obj;
       }
 
-      validator.init();
+      function currencyRegex(options) {
+        var symbol = '(\\' + options.symbol.replace(/\./g, '\\.') + ')' + (options.require_symbol ? '' : '?')
+          , negative = '-?'
+          , whole_dollar_amount_without_sep = '[1-9]\\d*'
+          , whole_dollar_amount_with_sep = '[1-9]\\d{0,2}(\\' + options.thousands_separator + '\\d{3})*'
+          , valid_whole_dollar_amounts = ['0', whole_dollar_amount_without_sep, whole_dollar_amount_with_sep]
+          , whole_dollar_amount = '(' + valid_whole_dollar_amounts.join('|') + ')?'
+          , decimal_amount = '(\\' + options.decimal_separator + '\\d{2})?';
+        var pattern = whole_dollar_amount + decimal_amount;
+        // default is negative sign before symbol, but there are two other options (besides parens)
+        if (options.allow_negatives && !options.parens_for_negatives) {
+          if (options.negative_sign_after_digits) {
+            pattern += negative;
+          }
+          else if (options.negative_sign_before_digits) {
+            pattern = negative + pattern;
+          }
+        }
+        // South African Rand, for example, uses R 123 (space) and R-123 (no space)
+        if (options.allow_negative_sign_placeholder) {
+          pattern = '( (?!\\-))?' + pattern;
+        }
+        else if (options.allow_space_after_symbol) {
+          pattern = ' ?' + pattern;
+        }
+        else if (options.allow_space_after_digits) {
+          pattern += '( (?!$))?';
+        }
+        if (options.symbol_after_digits) {
+          pattern += symbol;
+        } else {
+          pattern = symbol + pattern;
+        }
+        if (options.allow_negatives) {
+          if (options.parens_for_negatives) {
+            pattern = '(\\(' + pattern + '\\)|' + pattern + ')';
+          }
+          else if (!(options.negative_sign_before_digits || options.negative_sign_after_digits)) {
+            pattern = negative + pattern;
+          }
+        }
+        return new RegExp(
+          '^' +
+            // ensure there's a dollar and/or decimal amount, and that it doesn't start with a space or a negative sign followed by a space
+          '(?!-? )(?=.*\\d)' +
+          pattern +
+          '$'
+        );
+      }
 
       return validator;
 
