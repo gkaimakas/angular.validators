@@ -85,6 +85,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.33.1 - all validators are restricted as attributes now
+
 v3.33.0 - updated to validator.js v3.33.0
 
 v3.30.6 - simplified file structure 

@@ -651,6 +651,7 @@ angular
   .directive('equals', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.equals = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -664,6 +665,7 @@ angular
   .directive('watchEquals', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.watchEquals = function(modelValue, viewValue) {
 
@@ -685,6 +687,7 @@ angular
   .directive('isEmail', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isEmail = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -698,6 +701,7 @@ angular
   .directive('isUrl', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isUrl = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -711,6 +715,7 @@ angular
   .directive('isFqdn', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isFqdn = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -724,6 +729,7 @@ angular
   .directive('isIp', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isIp = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -741,6 +747,7 @@ angular
   .directive('isAlpha', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isAlpha = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -754,6 +761,7 @@ angular
   .directive('isNumeric', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isNumeric = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -767,6 +775,7 @@ angular
   .directive('isAlphanumeric', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isAlphanumeric = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -780,6 +789,7 @@ angular
   .directive('isBase64', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isAlphanumeric = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -793,6 +803,7 @@ angular
   .directive('isHexadecimal', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isHexadecimal = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -806,6 +817,7 @@ angular
   .directive('isHexColor', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isHexColor = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -819,6 +831,7 @@ angular
   .directive('isLowercase', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isLowercase = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -832,6 +845,7 @@ angular
   .directive('isUppercase', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isUppercase = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -845,6 +859,7 @@ angular
   .directive('isInt', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isInt = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -858,6 +873,7 @@ angular
   .directive('isFloat', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isFloat = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -871,6 +887,7 @@ angular
   .directive('isNull', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isNull = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -884,6 +901,7 @@ angular
   .directive('isUuid', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isUuid = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -901,6 +919,7 @@ angular
   .directive('isDate', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isDate = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -914,6 +933,7 @@ angular
   .directive('isAfter', ['nodeValidator', function(validator){
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isAfter = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -930,6 +950,7 @@ angular
   .directive('isPhone', ['nodeValidator', function(validator){
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isPhone = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -946,6 +967,7 @@ angular
   .directive('isBefore', ['nodeValidator', function(validator){
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isBefore = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -962,6 +984,7 @@ angular
   .directive('isCreditCard', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isCreditCard = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -975,6 +998,7 @@ angular
   .directive('isIsbn', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isIsbn = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -992,6 +1016,7 @@ angular
   .directive('isJson', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isJson = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1005,6 +1030,7 @@ angular
   .directive('isMultibyte', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isMultibyte = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1018,6 +1044,7 @@ angular
   .directive('isAscii', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isAscii = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1031,6 +1058,7 @@ angular
   .directive('isFullWidth', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isFullWidth = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1044,6 +1072,7 @@ angular
   .directive('isHalfWidth', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isHalfWidth = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1057,6 +1086,7 @@ angular
   .directive('isVariableWidth', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isVariableWidth = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1070,6 +1100,7 @@ angular
   .directive('isSurrogatePair', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isSurrogatePair = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
@@ -1083,6 +1114,7 @@ angular
   .directive('isMongoId', ['nodeValidator', function (validator) {
     return {
       require: 'ngModel',
+      restrict: 'A',
       link: function(scope, element, attrs, controller) {
         controller.$validators.isMongoId = function(modelValue, viewValue) {
           if (controller.$isEmpty(modelValue)) {
