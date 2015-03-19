@@ -17,7 +17,7 @@ Angular wrapper for [validator](https://www.npmjs.com/package/validator) by [Chr
 
 ### Validator version
 
-This module was written using validator v3.33.0
+This module was written using validator v3.34.0
 
 ### Install
 
@@ -85,6 +85,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.34.0 - updated to validator.js v3.34.0
+
 v3.33.1 - all validators are restricted as attributes now
 
 v3.33.0 - updated to validator.js v3.33.0
@@ -102,9 +104,6 @@ v3.30.4 - isPhone validator with validator.js's locales + Greek landline and mob
 
 v3.30.3 - new validators and some validation options where possible.
 
-### Disclaimer
-
-I did not create validator. Validator was created and maintained by [Chris O'Hara](https://github.com/chriso).
 
 ### License
 
