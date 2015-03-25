@@ -20,10 +20,9 @@ angular
       } else {
         _this[name] = definition();
       }
-    })('validator', function (validator) {
-      'use strict';
+    })('validator', function (validator) {    'use strict';
 
-      validator = { version: '3.34.0' };
+      validator = { version: '3.35.0' };
 
       var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))$/i;
 
@@ -72,7 +71,8 @@ angular
         'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
         'fr-FR': /^(\+?33|0)[67]\d{8}$/,
         'pt-PT': /^(\+351)?9[1236]\d{7}$/,
-        'el-GR' : /^(\+30)?((2\d{9})|(69\d{8}))$/
+        'el-GR': /^(\+30)?((2\d{9})|(69\d{8}))$/,
+        'en-GB': /^(\+?44|0)7\d{9}$/
       };
 
       validator.extend = function (name, fn) {
