@@ -1,4 +1,3 @@
-[![NPM](https://nodei.co/npm/angular.validators.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/angular.validators/)
 [![npm version](https://badge.fury.io/js/angular.validators.svg)](http://badge.fury.io/js/angular.validators)
 [![Bower version](https://badge.fury.io/bo/angular.validators.svg)](http://badge.fury.io/bo/angular.validators)
 [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://github.com/gkaimakas/angular.validators)
