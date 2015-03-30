@@ -5,7 +5,7 @@
 
 # angular.validators
 
-Angular validation directives using [validator](https://www.npmjs.com/package/validator)
+Angular validation directives using [validator.js](https://www.npmjs.com/package/validator)
 
 ### Contents
 
@@ -81,6 +81,8 @@ You can use multiple directives at once
     </form>
 
 ### Changelog
+
+v3.37.0 - updated to validator.js v3.37.0
 
 v3.35.0 - updated to validator.js v3.35.0
 

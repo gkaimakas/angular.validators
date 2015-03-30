@@ -20,9 +20,10 @@ angular
       } else {
         _this[name] = definition();
       }
-    })('validator', function (validator) {    'use strict';
+    })('validator', function (validator) {
+      'use strict';
 
-      validator = { version: '3.35.0' };
+      validator = { version: '3.37.0' };
 
       var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))$/i;
 
@@ -146,7 +147,8 @@ angular
 
       var default_email_options = {
         allow_display_name: false,
-        allow_utf8_local_part: true
+        allow_utf8_local_part: true,
+        require_tld: true
       };
 
       validator.isEmail = function (str, options) {
@@ -165,7 +167,7 @@ angular
           , domain = parts.pop()
           , user = parts.join('@');
 
-        if (!validator.isFQDN(domain, {require_tld: false})) {
+        if (!validator.isFQDN(domain, {require_tld: options.require_tld})) {
           return false;
         }
 
