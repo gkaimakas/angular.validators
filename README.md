@@ -13,7 +13,6 @@ Angular validation directives using [validator.js](https://www.npmjs.com/package
 + [Supported functions](#supported-functions)
 + [Use](#use)
 + [Changelog](#changelog)
-+ [Disclaimer](#disclaimer)
 + [License](#license)
 
 ### Install

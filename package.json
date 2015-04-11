@@ -1,9 +1,6 @@
 {
   "name": "angular.validators",
   "version": "3.37.0",
-  "dependencies": {
-    "grunt-cli": "^0.1.13"
-  },
   "devDependencies": {
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^0.2.0",
@@ -12,7 +9,8 @@
     "karma-chrome-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.5",
     "karma-mocha": "^0.1.10",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "karma-phantomjs-launcher": "^0.1.4",
+    "grunt-cli": "^0.1.13"
   },
   "engines": {
     "node": ">=0.10.0"
