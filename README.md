@@ -27,7 +27,7 @@ Include the module in your dependencies
     
 ### Supported functions
 
-Currently we support the following functions. 
+Currently the following functions are supported. 
 *All functions support only the default options of validator.*
 
 Directive | Description | Arguments
@@ -81,6 +81,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.37.1 - updated package.json and bower.json
+
 v3.37.0 - updated to validator.js v3.37.0
 
 v3.35.0 - updated to validator.js v3.35.0
@@ -103,6 +105,8 @@ Currently it must not be used as a circular watch, e.x :
 v3.30.4 - isPhone validator with validator.js's locales + Greek landline and mobile validation.
 
 v3.30.3 - new validators and some validation options where possible.
+
+v3.30.0 - version bump to be on par with validator.js
 
 
 ### License
