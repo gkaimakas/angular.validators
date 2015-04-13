@@ -81,6 +81,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.37.3 - updated package.json and bower.json
+
 v3.37.2 - updated package.json and bower.json
 
 v3.37.1 - updated package.json and bower.json
