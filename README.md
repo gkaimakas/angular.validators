@@ -81,6 +81,7 @@ You can use multiple directives at once
 
 ### Changelog
 
+
 v3.38.0 - updated to validator.js v3.38.0
 
 v3.37.3 - updated package.json and bower.json
