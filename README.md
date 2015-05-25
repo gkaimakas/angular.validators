@@ -80,6 +80,8 @@ You can use multiple directives at once
 ### Changelog
 
 
+v3.40.0 - updated to validator.js v3.40.0
+
 v3.39.0 - updated to validator.js v3.39.0
 
 v3.38.0 - updated to validator.js v3.38.0
