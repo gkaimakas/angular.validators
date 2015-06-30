@@ -1,19 +1,15 @@
 {
   "name": "angular.validators",
   "version": "3.40.1",
-  "homepage": "https://github.com/gkaimakas/angular.validators",
-  "authors": [
-    "gkaimakas <gkaimakas@gmail.com>"
-  ],
+  "description" : "Angular validation directives using validator.js",
+  "main": "./angular.validators.js",
   "dependencies": {
-    "angular": "~1.3.13"
+    "angular": "~1.4.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.0",
     "angular-scenario": "~1.3.0"
   },
-  "description": "Angular wrapper for validator by Chris O'Hara.",
-  "main": "./angular.validators.js",
   "keywords": [
     "angular",
     "validator",
@@ -62,6 +58,14 @@
     "javascript",
     "bower"
   ],
+  "authors": [
+    "gkaimakas <gkaimakas@gmail.com> (https://github.com/gkaimakas)"
+  ],
+  "homepage": "https://github.com/gkaimakas/angular.validators",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com:gkaimakas/angular.validators.git"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -69,5 +73,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions" : {
+    "angular" : "1.4.1"
+  },
+  "private" : "false"
 }
