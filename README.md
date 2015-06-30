@@ -52,7 +52,7 @@ Directive | Description | Arguments
  is-ip | check if the string is an IP (version 4 or 6). | 4, 6
  is-isbn |  check if the string is an ISBN (version 10 or 13). | 10, 13
  is-isin |  check if the string is an ISIN (stock/security identifier)
- is-in | check if the string is in a array of allowed values. | array
+ is-in | check if the string is in a array of allowed values. | array e.g ['a','b','c']
  is-int | check if the string is an integer.
  is-json | check if the string is valid JSON (note: uses JSON.parse).
  is-lowercase | check if the string is lowercase.
