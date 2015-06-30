@@ -56,7 +56,9 @@
     "alphanumeric",
     "isbn",
     "javascript",
-    "bower"
+    "bower",
+    "currency",
+    "boolean"
   ],
   "authors": [
     "gkaimakas <gkaimakas@gmail.com> (https://github.com/gkaimakas)"
