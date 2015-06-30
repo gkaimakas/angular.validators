@@ -19,7 +19,7 @@
   "scripts": {
     "test": "karma start"
   },
-  "keywords" : [
+  "keywords": [
     "angular",
     "validator",
     "validators",
@@ -67,5 +67,5 @@
     "javascript",
     "bower"
   ],
-  "repository" : "https://github.com/gkaimakas/angular.validators"
+  "repository": "https://github.com/gkaimakas/angular.validators"
 }

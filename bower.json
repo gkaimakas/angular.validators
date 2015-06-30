@@ -1,7 +1,7 @@
 {
   "name": "angular.validators",
   "version": "3.40.1",
-  "description" : "Angular validation directives using validator.js",
+  "description": "Angular validation directives using validator.js",
   "main": "./angular.validators.js",
   "dependencies": {
     "angular": "~1.4.1"
@@ -62,9 +62,9 @@
     "gkaimakas <gkaimakas@gmail.com> (https://github.com/gkaimakas)"
   ],
   "homepage": "https://github.com/gkaimakas/angular.validators",
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com:gkaimakas/angular.validators.git"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:gkaimakas/angular.validators.git"
   },
   "license": "MIT",
   "ignore": [
@@ -74,8 +74,8 @@
     "test",
     "tests"
   ],
-  "resolutions" : {
-    "angular" : "1.4.1"
+  "resolutions": {
+    "angular": "1.4.1"
   },
-  "private" : "false"
+  "private": "false"
 }

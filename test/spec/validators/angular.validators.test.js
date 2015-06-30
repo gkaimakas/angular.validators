@@ -27,12 +27,12 @@ var tests = [
     },
     {
         directive: 'is-after',
-        options : '2011-08-03',
-        valid : [
+        options: '2011-08-03',
+        valid: [
             '2011-08-04',
             new Date(2011, 8, 10)
         ],
-        invalid : [
+        invalid: [
             '2010-07-02',
             new Date(0)
         ]
