@@ -26,42 +26,47 @@ Include the module in your dependencies
 ### Supported functions
 
 Currently the following functions are supported. 
-*All functions support only the default options of validator.*
 
 Directive | Description | Arguments
 -------------------|-------------|-------------------
+ contains | check if the string contains the seed | string
  equals | check if the string matches the comparison. | string
- watch-equals | check if the string matches the comparison. | ngModel
- is-email | check if the string is an email.
- is-url | check if the string is a URL.
- is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
- is-ip | check if the string is an IP (version 4 or 6). | ipVersion (4, 6)
- is-alpha |  check if the string contains only letters (a-zA-Z).
- is-numeric | check if the string contains only numbers.
- is-alphanumeric | check if the string contains only letters and numbers.
- is-base64 | check if a string is base64 encoded.
- is-hexadecimal | check if the string is a hexadecimal number.
- is-hex-color | check if the string is a hexadecimal color.
- is-lowercase | check if the string is lowercase.
- is-uppercase | check if the string is uppercase.
- is-int | check if the string is an integer.
- is-float | check if the string is a float.
- is-null | check if the string is null.
- is-uuid | check if the string is a UUID (version 3, 4 or 5). | uuidVersion (3, 4, 5)
- is-date | check if the string is a date.
  is-after | check if the string is a date that's after the specified date (defaults to now). | date
- is-before | check if the string is a date that's before the specified date (defaults to now). | date
- is-credit-card | check if the string is a credit card.
- is-isbn |  check if the string is an ISBN (version 10 or 13). | isbnVersion (10, 13 )
- is-phone | check if the string is a mobile phone number | locale (zh-CN, en-ZA, en-AU, pt-PT, el-GR) For el-GR landline and mobile phones are validated
- is-json | check if the string is valid JSON (note: uses JSON.parse).
- is-multibyte |  check if the string contains one or more multibyte chars.
+ is-alpha |  check if the string contains only letters (a-zA-Z).
+ is-alphanumeric | check if the string contains only letters and numbers.
  is-ascii | check if the string contains ASCII chars only.
+ is-base64 | check if a string is base64 encoded.
+ is-before | check if the string is a date that's before the specified date (defaults to now). | date
+ is-boolean | check if a string is a boolean |
+ is-credit-card | check if the string is a credit card.
+ is-currency | check if the string is a valid currency amount | as in validator.js isCurrency
+ is-date | check if the string is a date.
+ is-divisible-by | check if the string is a number that's divisible by another | Int
+ is-email | check if the string is an email. | as in validator.js isEmail
+ is-fqdn | check if the string is a fully qualified domain name (e.g. domain.com).
+ is-float | check if the string is a float.
  is-full-width | check if the string contains any full-width chars.
  is-half-width | check if the string contains any half-width chars.
+ is-hex-color | check if the string is a hexadecimal color.
+ is-hexadecimal | check if the string is a hexadecimal number.
+ is-ip | check if the string is an IP (version 4 or 6). | 4, 6
+ is-isbn |  check if the string is an ISBN (version 10 or 13). | 10, 13
+ is-isin |  check if the string is an ISIN (stock/security identifier)
+ is-in | check if the string is in a array of allowed values. | array
+ is-int | check if the string is an integer.
+ is-json | check if the string is valid JSON (note: uses JSON.parse).
+ is-lowercase | check if the string is lowercase.
+ is-mobile-phone | check if the string is a mobile phone number |  zh-CN, en-ZA, en-AU, pt-PT, el-GR. For el-GR landline and mobile phones are validated.
+ is-mongo-id | check if the string is a valid hex-encoded representation of a MongoDB ObjectId.
+ is-multibyte |  check if the string contains one or more multibyte chars.
+ is-null | check if the string is null.
+ is-numeric | check if the string contains only numbers.
+ is-url | check if the string is a URL.
+ is-uuid | check if the string is a UUID (version 3, 4 or 5). |  3, 4, 5
+ is-uppercase | check if the string is uppercase.
  is-variable-width | check if the string contains a mixture of full and half-width chars.
  is-surrogate-pair | check if the string contains any surrogate pairs chars.
- is-mongo-id | check if the string is a valid hex-encoded representation of a MongoDB ObjectId.
+ watch-equals | check if the string matches the comparison. | ngModel
 
 ### Use
 
@@ -79,6 +84,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.40.1 - updated to validator.js v3.40.1. Deprecated is-phone and changed it to is-mobile-phone to be in parity with validator.js. 
+        Added new validators and suppot for optional arguments as in validator.js Major refactoring at tests, removed most of the files and replaced them with a single one.
 
 v3.40.0 - updated to validator.js v3.40.0
 

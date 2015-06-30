@@ -1,6 +1,6 @@
 {
   "name": "angular.validators",
-  "version": "3.40.0",
+  "version": "3.40.1",
   "devDependencies": {
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^0.2.0",
