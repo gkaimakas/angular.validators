@@ -23,7 +23,7 @@ angular
         })('validator', function (validator) {
             'use strict';
 
-            validator = {version: '3.40.1'};
+            validator = { version: '3.41.2' };
 
             var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))$/i;
 
@@ -75,7 +75,8 @@ angular
                 'el-GR': /^(\+30)?((2\d{9})|(69\d{8}))$/,
                 'en-GB': /^(\+?44|0)7\d{9}$/,
                 'en-US': /^(\+?1)?[2-9]\d{2}[2-9](?!11)\d{6}$/,
-                'en-ZM': /^(\+26)?09[567]\d{7}$/
+                'en-ZM': /^(\+26)?09[567]\d{7}$/,
+                'ru-RU': /^(\+?7|8)?9\d{9}$/
             };
 
             validator.extend = function (name, fn) {
@@ -169,6 +170,11 @@ angular
                     , domain = parts.pop()
                     , user = parts.join('@');
 
+                var lower_domain = domain.toLowerCase();
+                if (lower_domain === 'gmail.com' || lower_domain === 'googlemail.com') {
+                    user = user.replace(/\./g, '').toLowerCase();
+                }
+
                 if (!validator.isFQDN(domain, {require_tld: options.require_tld})) {
                     return false;
                 }
@@ -179,7 +185,7 @@ angular
             };
 
             var default_url_options = {
-                protocols: ['http', 'https', 'ftp']
+                protocols: [ 'http', 'https', 'ftp' ]
                 , require_tld: true
                 , require_protocol: false
                 , allow_underscores: false
@@ -205,7 +211,7 @@ angular
                     }
                 } else if (options.require_protocol) {
                     return false;
-                } else if (options.allow_protocol_relative_urls && url.substr(0, 2) === '//') {
+                }  else if (options.allow_protocol_relative_urls && url.substr(0, 2) === '//') {
                     split[0] = url.substr(2);
                 }
                 url = split.join('://');
@@ -291,7 +297,7 @@ angular
                     for (var i = 0; i < blocks.length; ++i) {
                         // test for a :: which can not be at the string start/end
                         // since those cases have been handled above
-                        if (blocks[i] === '' && i > 0 && i < blocks.length - 1) {
+                        if (blocks[i] === '' && i > 0 && i < blocks.length -1) {
                             if (foundOmissionBlock)
                                 return false; // multiple :: in address
                             foundOmissionBlock = true;
@@ -351,7 +357,7 @@ angular
                 return true;
             };
 
-            validator.isBoolean = function (str) {
+            validator.isBoolean = function(str) {
                 return (['true', 'false', '1', '0'].indexOf(str) >= 0);
             };
 
@@ -477,7 +483,7 @@ angular
                     return false;
                 }
 
-                var checksumStr = str.replace(/[A-Z]/g, function (character) {
+                var checksumStr = str.replace(/[A-Z]/g, function(character) {
                     return parseInt(character, 36);
                 });
 
@@ -523,11 +529,11 @@ angular
                     if ((checksum % 11) === 0) {
                         return !!sanitized;
                     }
-                } else if (version === '13') {
+                } else  if (version === '13') {
                     if (!isbn13Maybe.test(sanitized)) {
                         return false;
                     }
-                    var factor = [1, 3];
+                    var factor = [ 1, 3 ];
                     for (i = 0; i < 12; i++) {
                         checksum += factor[i % 2] * sanitized.charAt(i);
                     }
@@ -538,7 +544,7 @@ angular
                 return false;
             };
 
-            validator.isMobilePhone = function (str, locale) {
+            validator.isMobilePhone = function(str, locale) {
                 if (locale in phones) {
                     return phones[locale].test(str);
                 }

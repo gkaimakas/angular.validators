@@ -84,6 +84,8 @@ You can use multiple directives at once
 
 ### Changelog
 
+v3.41.1 - updated to validator.js v3.41.1
+
 v3.40.1 - updated to validator.js v3.40.1. Deprecated is-phone and changed it to is-mobile-phone to be in parity with validator.js. 
         Added new validators and suppot for optional arguments as in validator.js Major refactoring at tests, removed most of the files and replaced them with a single one.
 
