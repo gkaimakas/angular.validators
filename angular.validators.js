@@ -10,6 +10,98 @@
  */
 angular
     .module('angular.validators', [])
+    .provider('asyncValidator', function(){
+        var _baseUrl;
+        var _defaultState = false;
+        var _endpoints = {};
+        var _httpVerb = 'get'.toLowerCase();
+        var _invalidResponse = 'false';
+        var _minLength = 3;
+        var _responseField = 'valid';
+        var _validResponse = 'true';
+        var _wildcard = '{value}';
+
+        this.baseUrl = function(baseUrl){
+            _baseUrl = baseUrl;
+            return this;
+        };
+
+        this.defaultState =function(defaultState){
+            _defaultState = !!defaultState;
+            return this;
+        };
+
+        this.endpoint = function(name, url){
+            _endpoints[name] = url;
+            return this;
+        };
+
+        this.httpVerb = function(verb){
+            _httpVerb = verb.toLowerCase();
+            return this;
+        };
+
+        this.invalidResponse = function(response){
+            _invalidResponse = response;
+            return this;
+        };
+
+        this.minLength = function(minLength){
+            _minLength = parseInt(minLength);
+            return this;
+        };
+
+        this.responseField = function(responseField){
+            _responseField = responseField;
+            return this;
+        };
+
+
+        this.validResponse = function(response){
+            _validResponse = response;
+            return this;
+        };
+
+        this.wildcard = function(wildcard){
+            _wildcard = wildcard;
+            return this;
+        };
+
+        this.$get = ['$http', '$q', function($http, $q){
+            var endpoints = {};
+            for( var key in _endpoints){
+                endpoints[key] = _baseUrl + _endpoints[key];
+            }
+
+            return new function(){
+                var deferred = $q.defer();
+
+                this.defaultState = _defaultState;
+                this.endpoints = endpoints;
+                this.getUrl = function(endpoint, value){
+                    return this.endpoints[endpoint].replace(_wildcard, value);
+                };
+
+                this.minLength = _minLength;
+
+                this.resolve = function(url){
+                    return $http[_httpVerb](url)
+                        .then(function(response){
+                            if(response.data[_responseField] === _validResponse){
+                                return deferred.resolve(_validResponse);
+                            }
+
+                            if(response.data[_responseField] === _invalidResponse){
+                                return deferred.reject(_invalidResponse);
+                            }
+                        })
+                        .catch(function(err){
+                            return deferred.reject();
+                        });
+                }
+            };
+        }];
+    })
     .service('nodeValidator', function () {
         var _this = {};
         (function (name, definition) {
@@ -744,6 +836,25 @@ angular
         return _this.validator;
 
     })
+    .directive('asyncValid', ['asyncValidator', function(asyncValidator){
+        return {
+            require: 'ngMode;',
+            restrict: 'A',
+            link: function(scope, element, attrs, controller){
+                var endpoint = asyncValidator[attrs.asyncValid];
+                var minLength = parseInt(attrs.asyncMinLength) || asyncValidator.minLength;
+                var defaultState = attrs.asyncDefaultState || asyncValidator.defaultState;
+
+                controller.$asyncValidators.asyncValid = function(modelValue, viewValue){
+                    if(viewValue.length < minLength) return defaultState;
+
+                    return asyncValidator.resolve(
+                        asyncValidator.getUrl(endpoint, viewValue)
+                    );
+                }
+            }
+        };
+    }])
     .directive('contains', ['nodeValidator', function (validator) {
         return {
             require: 'ngModel',
