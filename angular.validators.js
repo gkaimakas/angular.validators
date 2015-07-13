@@ -88,11 +88,11 @@ angular
                     return $http[_httpVerb](url)
                         .then(function(response){
                             if(response.data[_responseField] === _validResponse){
-                                return deferred.resolve(_validResponse);
+                                return deferred.resolve(true);
                             }
 
                             if(response.data[_responseField] === _invalidResponse){
-                                return deferred.reject(_invalidResponse);
+                                return deferred.reject(false);
                             }
                         })
                         .catch(function(err){
@@ -836,9 +836,9 @@ angular
         return _this.validator;
 
     })
-    .directive('asyncValid', ['asyncValidator', function(asyncValidator){
+    .directive('asyncValid', ['asyncValidator', '$q', function(asyncValidator, $q){
         return {
-            require: 'ngMode;',
+            require: 'ngModel',
             restrict: 'A',
             link: function(scope, element, attrs, controller){
                 var endpoint = asyncValidator[attrs.asyncValid];
@@ -848,9 +848,14 @@ angular
                 controller.$asyncValidators.asyncValid = function(modelValue, viewValue){
                     if(viewValue.length < minLength) return defaultState;
 
-                    return asyncValidator.resolve(
-                        asyncValidator.getUrl(endpoint, viewValue)
-                    );
+                    var url = asyncValidator.getUrl(endpoint, viewValue);
+                    return asyncValidator.resolve(url)
+                        .then(function(result){
+                            if(!result) return $q.reject(false);
+                            if(result === true) return $q.defer().resolve(true);
+                            if(result == false) return $q.defer().reject(false);
+                            return false;
+                        });
                 }
             }
         };
