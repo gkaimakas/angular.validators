@@ -137,7 +137,7 @@ async-valid-response | string | validResponse(response)
 
 ### Changelog
 
-v3.41.3 - updated to validator.js v3.41.2 and added support for async validation using the asyncValid directive
+v3.41.2 - updated to validator.js v3.41.2 and added support for async validation using the asyncValid directive
 
 v3.41.1 - updated to validator.js v3.41.1
 
