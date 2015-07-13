@@ -1,6 +1,6 @@
 {
   "name": "angular.validators",
-  "version": "3.41.1",
+  "version": "3.41.3",
   "description": "Angular validation directives using validator.js",
   "main": "./angular.validators.js",
   "dependencies": {

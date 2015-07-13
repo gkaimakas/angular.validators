@@ -21,6 +21,7 @@ angular
         var _validResponse = 'true';
         var _wildcard = '{value}';
 
+        //sets the base url for the api
         this.baseUrl = function(baseUrl){
             _baseUrl = baseUrl;
             return this;
@@ -31,21 +32,25 @@ angular
             return this;
         };
 
+        //sets an api endpoint for easy use
         this.endpoint = function(name, url){
             _endpoints[name] = url;
             return this;
         };
 
+        //sets the http verb
         this.httpVerb = function(verb){
             _httpVerb = verb.toLowerCase();
             return this;
         };
 
+        // sets the invalid response value from the api
         this.invalidResponse = function(response){
             _invalidResponse = response;
             return this;
         };
 
+        // in the viewValue.length is less than min length then the validator return
         this.minLength = function(minLength){
             _minLength = parseInt(minLength);
             return this;
@@ -82,6 +87,7 @@ angular
                     return this.endpoints[endpoint].replace(_wildcard, value);
                 };
 
+                this.invalidResponse = _invalidResponse;
                 this.minLength = _minLength;
 
                 this.resolve = function(url){
@@ -98,7 +104,9 @@ angular
                         .catch(function(err){
                             return deferred.reject();
                         });
-                }
+                };
+
+                this.validResponse = _validResponse;
             };
         }];
     })
@@ -842,11 +850,14 @@ angular
             restrict: 'A',
             link: function(scope, element, attrs, controller){
                 var endpoint = asyncValidator[attrs.asyncValid];
-                var minLength = parseInt(attrs.asyncMinLength) || asyncValidator.minLength;
                 var defaultState = attrs.asyncDefaultState || asyncValidator.defaultState;
+                var invalidResponse = attrs.asyncInvalidResponse || asyncValidator.invalidResponse;
+                var minLength = parseInt(attrs.asyncMinLength) || asyncValidator.minLength;
+                var validResponse = attrs.asyncValidResponse || asyncValidator.validResponse;
 
                 controller.$asyncValidators.asyncValid = function(modelValue, viewValue){
-                    if(viewValue.length < minLength) return defaultState;
+                    if(viewValue.length < minLength && defaultState == validResponse) return $q.defer().resolve(true);
+                    if(viewValue.length < minLength && defaultState == invalidResponse) return $q.defer().resolve(false);
 
                     var url = asyncValidator.getUrl(endpoint, viewValue);
                     return asyncValidator.resolve(url)

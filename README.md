@@ -81,8 +81,63 @@ You can use multiple directives at once
     <form name="form">
       <input type="text" ng-model="value" name="value" is-alpha is-lowercase />
     </form>
+    
+#### Async Validation
+
+As of version 3.41.3 angular validators support async validation. To use async validation first you have to configure the asyncValidatorProvider in your app.js
+
+    angular.module('my-project', [
+        ...,
+        'angular.validators'
+    ])
+    .config(['asyncValidatorProvier', function(asyncValidatorProvider){
+        asyncValidatorProvider
+            .baseUrl('http://localhost:1337')
+            .endpoint('usernane', '/api/username/{value}')
+            ...
+    }])
+
+Some words on the api: the api must return a JSON object that has an attribute named data and within an other attribute that contains the result. The default name for the attribute is 'valid'. You can change the name of the attribute on the config phase using the 'responseField' function.
+
+The available options for asyncValidatorProvider are the following:
+
+function | arguments | description | example
+-|-|-|-
+baseUrl(string) | string | sets the base url for api (helper function) | .baseUrl('http://localhost:1337')
+defaultState(boolean) | boolean | the default state of the validator (defaults to false).  | .defaultState(true)
+endpoint(name, url) | name: string, url: string | sets an endpoint with an easy to use name | .endpoint('username', '/api/account/{value}
+httpVerb(verb) | verb:string | Sets the http verd that the api accepts for async validation, defaults to get | .httpVerb('post')
+invalidResponse(response) | response: string |  the response the api returns if the value is invalid, defaults to 'false' | .invalidResponse('false')
+minLength(length) | length: int | the min length that the view value neeeds to have in order to make a call to the api, defaults to 3 | .minLength(4)
+responseField(field) | field: string | change the name of the field that contains the respone | .responseField('valid')
+validResponse(response) | response: string |the response the api returns if the value is valid, defaults to 'true' | .invalidResponse('true')
+wildcard(string) | string | async validators uses a place holder to replace the value on the string of the url, defaults to '{value}' | wildcard(':value')
+
+All asyncValidatorProvider return the asyncValidatorProvider instance for easy chaining.
+
+To use the directive simply include it in your html:
+
+    <form name='form'>
+        <input type='text' ng-model='value' name='value' async-valid='username'>
+    </form>
+
+You can override some global values from the directive itself like this
+
+attribute | value |function that overrides
+-|-|-
+async-default-state | string | defaultState(state)
+async-invalid-response | string | invalidResponse(response)
+async-min-length | int, string | minLength(length)
+async-valid-response | string | validResponse(response)
+
+** if you have any problems with async-valid create an issue on Github
+    
+    
+
 
 ### Changelog
+
+v3.41.3 - updated to validator.js v3.41.2 and added support for async validation using the asyncValid directive
 
 v3.41.1 - updated to validator.js v3.41.1
 
