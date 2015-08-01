@@ -52,6 +52,7 @@ Directive | Description | Arguments
  is-ip | check if the string is an IP (version 4 or 6). | 4, 6
  is-isbn |  check if the string is an ISBN (version 10 or 13). | 10, 13
  is-isin |  check if the string is an ISIN (stock/security identifier)
+ is-iso8601 | check if the string is a valid [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date.
  is-in | check if the string is in a array of allowed values. | array e.g ['a','b','c']
  is-int | check if the string is an integer.
  is-json | check if the string is valid JSON (note: uses JSON.parse).
@@ -102,7 +103,7 @@ Some words on the api: the api must return a JSON object that has an attribute n
 The available options for asyncValidatorProvider are the following:
 
 function | arguments | description | example
--|-|-|-
+----|-----|-----|-----
 baseUrl(string) | string | sets the base url for api (helper function) | .baseUrl('http://localhost:1337')
 defaultState(boolean) | boolean | the default state of the validator (defaults to false).  | .defaultState(true)
 endpoint(name, url) | name: string, url: string | sets an endpoint with an easy to use name | .endpoint('username', '/api/account/{value}
@@ -123,8 +124,8 @@ To use the directive simply include it in your html:
 
 You can override some global values from the directive itself like this
 
-attribute | value |function that overrides
--|-|-
+attribute | value | function that overrides
+----|----|-----
 async-default-state | string | defaultState(state)
 async-invalid-response | string | invalidResponse(response)
 async-min-length | int, string | minLength(length)
@@ -136,6 +137,7 @@ async-valid-response | string | validResponse(response)
 
 
 ### Changelog
+v4.0.0 - updated to validator.js v4.0.0 and new directive is-iso8601 
 
 v3.41.2 - updated to validator.js v3.41.2 and added support for async validation using the asyncValid directive
 
