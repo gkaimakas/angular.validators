@@ -15,7 +15,9 @@ Angular validation directives using [validator.js](https://www.npmjs.com/package
 
 ### Install
 
-    bower install angular.validator
+```bash
+$ bower install angular.validators
+```
     
 Include the module in your dependencies
     
