@@ -123,11 +123,11 @@ angular
         })('validator', function (validator) {
             'use strict';
 
-            validator = { version: '3.41.2' };
+            validator = { version: '4.0.0' };
 
-            var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))$/i;
+            var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|"(\s*(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*\s*")$/i;
 
-            var emailUserUtf8 = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))$/i;
+            var emailUserUtf8 = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|"(\s*(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*\s*")$/i;
 
             var displayName = /^(?:[a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~\.]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(?:[a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~\.]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\s)*<(.+)>$/i;
 
@@ -154,6 +154,7 @@ angular
                 , int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/
                 , float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/
                 , hexadecimal = /^[0-9A-F]+$/i
+                , decimal = /^[-+]?[0-9]*(\.[0-9]+)?$/
                 , hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
             var ascii = /^[\x00-\x7F]+$/
@@ -178,6 +179,9 @@ angular
                 'en-ZM': /^(\+26)?09[567]\d{7}$/,
                 'ru-RU': /^(\+?7|8)?9\d{9}$/
             };
+
+            // from http://goo.gl/0ejHHW
+            var iso8601 = /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
 
             validator.extend = function (name, fn) {
                 validator[name] = function () {
@@ -262,8 +266,6 @@ angular
                     if (display_email) {
                         str = display_email[1];
                     }
-                } else if (/\s/.test(str)) {
-                    return false;
                 }
 
                 var parts = str.split('@')
@@ -288,6 +290,7 @@ angular
                 protocols: [ 'http', 'https', 'ftp' ]
                 , require_tld: true
                 , require_protocol: false
+                , require_valid_protocol: true
                 , allow_underscores: false
                 , allow_trailing_dot: false
                 , allow_protocol_relative_urls: false
@@ -306,7 +309,7 @@ angular
                 split = url.split('://');
                 if (split.length > 1) {
                     protocol = split.shift();
-                    if (options.protocols.indexOf(protocol) === -1) {
+                    if (options.require_valid_protocol && options.protocols.indexOf(protocol) === -1) {
                         return false;
                     }
                 } else if (options.require_protocol) {
@@ -471,6 +474,10 @@ angular
 
             validator.isNumeric = function (str) {
                 return numeric.test(str);
+            };
+
+            validator.isDecimal = function (str) {
+                return decimal.test(str);
             };
 
             validator.isHexadecimal = function (str) {
@@ -674,11 +681,10 @@ angular
 
             validator.isJSON = function (str) {
                 try {
-                    JSON.parse(str);
-                } catch (e) {
-                    return false;
-                }
-                return true;
+                    var obj = JSON.parse(str);
+                    return !!obj && typeof obj === 'object';
+                } catch (e) {}
+                return false;
             };
 
             validator.isMultibyte = function (str) {
@@ -711,6 +717,10 @@ angular
 
             validator.isMongoId = function (str) {
                 return validator.isHexadecimal(str) && str.length === 24;
+            };
+
+            validator.isISO8601 = function (str) {
+                return iso8601.test(str);
             };
 
             validator.ltrim = function (str, chars) {
@@ -1215,6 +1225,20 @@ angular
                         return true;
                     }
                     return validator.isISIN(viewValue);
+                };
+            }
+        };
+    }])
+    .directive('isIso8601', ['nodeValidator', function (validator) {
+        return {
+            require: 'ngModel',
+            restrict: 'A',
+            link: function (scope, element, attrs, controller) {
+                controller.$validators.isIsin = function (modelValue, viewValue) {
+                    if (controller.$isEmpty(modelValue)) {
+                        return true;
+                    }
+                    return validator.isISO8601(viewValue);
                 };
             }
         };
