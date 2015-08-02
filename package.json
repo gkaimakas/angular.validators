@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "license": "MIT",
   "devDependencies": {
+    "grunt-cli": "^0.1.13",
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^0.2.0",
     "karma": "^0.12.31",
@@ -11,13 +12,13 @@
     "karma-jasmine": "^0.3.5",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
-    "grunt-cli": "^0.1.13"
+    "phantomjs": "^1.9.17"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "keywords": [
     "angular",
