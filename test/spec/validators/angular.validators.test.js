@@ -601,7 +601,7 @@ function setupTest(validator) {
         it('should return true on for ' + validator.directive, function () {
             for (var index = 0; index < validator.valid.length; index++) {
                 var value = validator.valid[index];
-                form.value.$setViewValue(validator.valid[index]);
+                form.value.$setViewValue(value);
                 $scope.$digest();
                 expect(form.value.$valid).toBe(true);
             }
