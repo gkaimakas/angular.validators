@@ -140,6 +140,8 @@ async-valid-response | string | validResponse(response)
 
 
 ### Changelog
+v4.0.3 - the latest version of validator.js is now included autmatically.
+
 v4.0.0 - updated to validator.js v4.0.0 and new directive is-iso8601 
 
 v3.41.2 - updated to validator.js v3.41.2 and added support for async validation using the asyncValid directive
