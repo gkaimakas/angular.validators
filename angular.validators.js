@@ -110,7 +110,7 @@ angular
             };
         }];
     })
-    .service('validatorjs', ['$http', '$q', function ($http, $q) {
+    .service('validator', ['$http', '$q', function ($http, $q) {
         var deferred = $q.defer();
         $http.get('https://cdn.rawgit.com/chriso/validator.js/master/validator.js')
             .then(function(result){
@@ -145,7 +145,7 @@ angular
             }
         };
     }])
-    .directive('contains', ['validatorjs', function (validator) {
+    .directive('contains', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -159,7 +159,7 @@ angular
             }
         };
     }])
-    .directive('equals', ['validatorjs', function (validator) {
+    .directive('equals', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -173,7 +173,7 @@ angular
             }
         };
     }])
-    .directive('isAfter', ['validatorjs', function (validator) {
+    .directive('isAfter', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -190,7 +190,7 @@ angular
             }
         };
     }])
-    .directive('isAlpha', ['validatorjs', function (validator) {
+    .directive('isAlpha', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -204,7 +204,7 @@ angular
             }
         };
     }])
-    .directive('isAlphanumeric', ['validatorjs', function (validator) {
+    .directive('isAlphanumeric', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -218,7 +218,7 @@ angular
             }
         };
     }])
-    .directive('isAscii', ['validatorjs', function (validator) {
+    .directive('isAscii', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -232,7 +232,7 @@ angular
             }
         };
     }])
-    .directive('isBase64', ['validatorjs', function (validator) {
+    .directive('isBase64', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -246,7 +246,7 @@ angular
             }
         };
     }])
-    .directive('isBefore', ['validatorjs', function (validator) {
+    .directive('isBefore', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -263,7 +263,7 @@ angular
             }
         };
     }])
-    .directive('isBoolean', ['validatorjs', function (validator) {
+    .directive('isBoolean', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -277,7 +277,7 @@ angular
             }
         };
     }])
-    .directive('isCreditCard', ['validatorjs', function (validator) {
+    .directive('isCreditCard', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -291,7 +291,7 @@ angular
             }
         };
     }])
-    .directive('isCurrency', ['validatorjs', function (validator) {
+    .directive('isCurrency', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -308,7 +308,7 @@ angular
             }
         };
     }])
-    .directive('isDate', ['validatorjs', function (validator) {
+    .directive('isDate', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -322,7 +322,7 @@ angular
             }
         };
     }])
-    .directive('isDivisibleBy', ['validatorjs', function (validator) {
+    .directive('isDivisibleBy', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -336,7 +336,7 @@ angular
             }
         };
     }])
-    .directive('isEmail', ['validatorjs', function (validator) {
+    .directive('isEmail', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -354,7 +354,7 @@ angular
             }
         };
     }])
-    .directive('isFqdn', ['validatorjs', function (validator) {
+    .directive('isFqdn', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -373,7 +373,7 @@ angular
             }
         };
     }])
-    .directive('isFloat', ['validatorjs', function (validator) {
+    .directive('isFloat', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -387,7 +387,7 @@ angular
             }
         };
     }])
-    .directive('isFullWidth', ['validatorjs', function (validator) {
+    .directive('isFullWidth', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -401,7 +401,7 @@ angular
             }
         };
     }])
-    .directive('isHalfWidth', ['validatorjs', function (validator) {
+    .directive('isHalfWidth', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -415,7 +415,7 @@ angular
             }
         };
     }])
-    .directive('isHexColor', ['validatorjs', function (validator) {
+    .directive('isHexColor', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -429,7 +429,7 @@ angular
             }
         };
     }])
-    .directive('isHexadecimal', ['validatorjs', function (validator) {
+    .directive('isHexadecimal', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -443,7 +443,7 @@ angular
             }
         };
     }])
-    .directive('isIp', ['validatorjs', function (validator) {
+    .directive('isIp', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -461,7 +461,7 @@ angular
             }
         };
     }])
-    .directive('isIsbn', ['validatorjs', function (validator) {
+    .directive('isIsbn', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -479,7 +479,7 @@ angular
             }
         };
     }])
-    .directive('isIsin', ['validatorjs', function (validator) {
+    .directive('isIsin', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -493,7 +493,7 @@ angular
             }
         };
     }])
-    .directive('isIso8601', ['validatorjs', function (validator) {
+    .directive('isIso8601', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -507,7 +507,7 @@ angular
             }
         };
     }])
-    .directive('isIn', ['validatorjs', function (validator) {
+    .directive('isIn', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -521,7 +521,7 @@ angular
             }
         };
     }])
-    .directive('isInt', ['validatorjs', function (validator) {
+    .directive('isInt', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -535,7 +535,7 @@ angular
             }
         };
     }])
-    .directive('isJson', ['validatorjs', function (validator) {
+    .directive('isJson', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -549,7 +549,7 @@ angular
             }
         };
     }])
-    .directive('isLowercase', ['validatorjs', function (validator) {
+    .directive('isLowercase', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -563,7 +563,7 @@ angular
             }
         };
     }])
-    .directive('isMobilePhone', ['validatorjs', function (validator) {
+    .directive('isMobilePhone', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -580,7 +580,7 @@ angular
             }
         };
     }])
-    .directive('isMongoId', ['validatorjs', function (validator) {
+    .directive('isMongoId', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -594,7 +594,7 @@ angular
             }
         };
     }])
-    .directive('isMultibyte', ['validatorjs', function (validator) {
+    .directive('isMultibyte', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -608,7 +608,7 @@ angular
             }
         };
     }])
-    .directive('isNull', ['validatorjs', function (validator) {
+    .directive('isNull', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -622,7 +622,7 @@ angular
             }
         };
     }])
-    .directive('isNumeric', ['validatorjs', function (validator) {
+    .directive('isNumeric', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -636,7 +636,7 @@ angular
             }
         };
     }])
-    .directive('isUrl', ['validatorjs', function (validator) {
+    .directive('isUrl', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -655,7 +655,7 @@ angular
             }
         };
     }])
-    .directive('isUuid', ['validatorjs', function (validator) {
+    .directive('isUuid', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -673,7 +673,7 @@ angular
             }
         };
     }])
-    .directive('isUppercase', ['validatorjs', function (validator) {
+    .directive('isUppercase', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -687,7 +687,7 @@ angular
             }
         };
     }])
-    .directive('isVariableWidth', ['validatorjs', function (validator) {
+    .directive('isVariableWidth', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -701,7 +701,7 @@ angular
             }
         };
     }])
-    .directive('isSurrogatePair', ['validatorjs', function (validator) {
+    .directive('isSurrogatePair', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -715,7 +715,7 @@ angular
             }
         };
     }])
-    .directive('watchEquals', ['validatorjs', function (validator) {
+    .directive('watchEquals', ['validator', function (validator) {
         return {
             require: 'ngModel',
             restrict: 'A',
