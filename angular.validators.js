@@ -118,12 +118,13 @@ angular
             } else if (typeof define === 'function' && typeof define.amd === 'object') {
                 define(definition);
             } else {
-                _this[name] = definition();
+                this[name] = definition();
             }
         })('validator', function (validator) {
+
             'use strict';
 
-            validator = { version: '4.0.0' };
+            validator = { version: '4.0.2' };
 
             var emailUser = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~])+)*)|"(\s*(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e])|(\\[\x01-\x09\x0b\x0c\x0d-\x7f])))*\s*")$/i;
 
@@ -154,7 +155,7 @@ angular
                 , int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/
                 , float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/
                 , hexadecimal = /^[0-9A-F]+$/i
-                , decimal = /^[-+]?[0-9]*(\.[0-9]+)?$/
+                , decimal = /^[-+]?([0-9]+|\.[0-9]+|[0-9]+\.[0-9]+)$/
                 , hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
             var ascii = /^[\x00-\x7F]+$/
@@ -275,6 +276,11 @@ angular
                 var lower_domain = domain.toLowerCase();
                 if (lower_domain === 'gmail.com' || lower_domain === 'googlemail.com') {
                     user = user.replace(/\./g, '').toLowerCase();
+                }
+
+                if (!validator.isByteLength(user, 0, 64) ||
+                    !validator.isByteLength(domain, 0, 256)) {
+                    return false;
                 }
 
                 if (!validator.isFQDN(domain, {require_tld: options.require_tld})) {
@@ -452,6 +458,10 @@ angular
                     if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part)) {
                         return false;
                     }
+                    if (/[\uff01-\uff5e]/.test(part)) {
+                        // disallow full-width chars
+                        return false;
+                    }
                     if (part[0] === '-' || part[part.length - 1] === '-' ||
                         part.indexOf('---') >= 0) {
                         return false;
@@ -477,7 +487,7 @@ angular
             };
 
             validator.isDecimal = function (str) {
-                return decimal.test(str);
+                return str !== '' && decimal.test(str);
             };
 
             validator.isHexadecimal = function (str) {
@@ -521,7 +531,8 @@ angular
             };
 
             validator.isByteLength = function (str, min, max) {
-                return str.length >= min && (typeof max === 'undefined' || str.length <= max);
+                var len = encodeURI(str).split(/%..|./).length - 1;
+                return len >= min && (typeof max === 'undefined' || len <= max);
             };
 
             validator.isUUID = function (str, version) {
