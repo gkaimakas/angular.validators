@@ -11,6 +11,7 @@ Angular validation directives using [validator.js](https://www.npmjs.com/package
 + [Install](#install)
 + [Supported functions](#supported-functions)
 + [Use](#use)
++ [Validator service](#validator-service)
 + [Changelog](#changelog)
 + [License](#license)
 
@@ -137,7 +138,9 @@ async-valid-response | string | validResponse(response)
 ** if you have any problems with async-valid create an issue on Github
     
     
+### Validator service
 
+Angular validators exposes validatorjs as an angular service named validator.
 
 ### Changelog
 v4.0.4 - changes on the validator service!
