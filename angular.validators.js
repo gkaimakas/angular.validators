@@ -10,6 +10,7 @@
  */
 angular
     .module('angular.validators', [])
+    .constant('validator_version', '4.0.2')
     .provider('asyncValidator', function(){
         var _baseUrl;
         var _defaultState = false;
@@ -110,9 +111,9 @@ angular
             };
         }];
     })
-    .service('validator', ['$http', '$q', function ($http, $q) {
+    .service('validator', ['$http', '$q', 'validator_version', function ($http, $q, version) {
         var deferred = $q.defer();
-        $http.get('https://cdn.rawgit.com/chriso/validator.js/master/validator.js')
+        $http.get('https://cdn.rawgit.com/chriso/validator.js/'+ version + '/validator.js')
             .then(function(result){
                 deferred.resolve(result.data);
             });
