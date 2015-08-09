@@ -118,7 +118,7 @@ angular
             } else if (typeof define === 'function' && typeof define.amd === 'object') {
                 define(definition);
             } else {
-                this[name] = definition();
+                _this[name] = definition();
             }
         })('validator', function (validator) {
 

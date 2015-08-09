@@ -600,8 +600,8 @@ function setupTest(validator) {
 
         it('should return true on for ' + validator.directive, function () {
             for (var index = 0; index < validator.valid.length; index++) {
-                var value = validator.valid[index];
-                form.value.$setViewValue(value);
+                //var value = validator.valid[index];
+                form.value.$setViewValue(validator.valid[index]);
                 $scope.$digest();
                 expect(form.value.$valid).toBe(true);
             }
@@ -610,7 +610,7 @@ function setupTest(validator) {
         it('should return false for ' + validator.directive, function () {
             for (var index = 0; index < validator.invalid.length; index++) {
                 var value = validator.invalid[index];
-                form.value.$setViewValue(value);
+                form.value.$setViewValue(validator.invalid[index]);
                 $scope.$digest();
                 expect(form.value.$valid).toBe(false);
             }
