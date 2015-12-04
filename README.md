@@ -144,6 +144,8 @@ Angular validators exposes validatorjs as an angular service named validator. Mo
 
 ### Changelog
 
+v4.3.0 - Updated to version 4.3.0
+
 v4.2.1 - It's been a long time, updated to version 4.2.1
 
 v4.0.6 - reverted back to code from v4.0.2 since v4.0.3 & v4.0.4 where riddled with bugs.
