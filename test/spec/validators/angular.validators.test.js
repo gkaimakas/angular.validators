@@ -374,8 +374,7 @@ var tests = [
         directive: 'is-mobile-phone',
         options: 'el-GR',
         valid: [
-            '6944848966',
-            '2610123456'
+            '6944848966'
         ],
         invalid: [
             '54768923101',
