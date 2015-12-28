@@ -121,10 +121,9 @@ angular
                 _this[name] = definition();
             }
         })('validator', function (validator) {
-
           'use strict';
 
-          validator = { version: '4.3.0' };
+          validator = { version: '4.4.1' };
 
           var emailUserPart = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~]+$/i;
           var quotedEmailUser = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f]))*$/i;
@@ -172,14 +171,14 @@ angular
           var base64 = /^(?:[A-Z0-9+\/]{4})*(?:[A-Z0-9+\/]{2}==|[A-Z0-9+\/]{3}=|[A-Z0-9+\/]{4})$/i;
 
           var phones = {
-            'zh-CN': /^(\+?0?86\-?)?1[345789]\d{9}$/,
+            'zh-CN': /^(\+?0?86\-?)?((13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7})$/,
             'zh-TW': /^(\+?886\-?|0)?9\d{8}$/,
             'en-ZA': /^(\+?27|0)\d{9}$/,
             'en-AU': /^(\+?61|0)4\d{8}$/,
             'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
             'fr-FR': /^(\+?33|0)[67]\d{8}$/,
             'pt-PT': /^(\+351)?9[1236]\d{7}$/,
-            'el-GR': /^(\+30)?((2\d{9})|(69\d{8}))$/,
+            'el-GR': /^(\+?30)?(69\d{8})$/,
             'en-GB': /^(\+?44|0)7\d{9}$/,
             'en-US': /^(\+?1)?[2-9]\d{2}[2-9](?!11)\d{6}$/,
             'en-ZM': /^(\+26)?09[567]\d{7}$/,
@@ -488,8 +487,10 @@ angular
                 // disallow full-width chars
                 return false;
               }
-              if (part[0] === '-' || part[part.length - 1] === '-' ||
-                part.indexOf('---') >= 0) {
+              if (part[0] === '-' || part[part.length - 1] === '-') {
+                return false;
+              }
+              if (part.indexOf('---') >= 0 && part.slice(0, 4) !== 'xn--') {
                 return false;
               }
             }
