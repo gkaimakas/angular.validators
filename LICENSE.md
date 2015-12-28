@@ -1,4 +1,4 @@
-### License
+# License
 
 Copyright (c) 2015 George Kaimakas <gkaimakas@gmail.com>
 
