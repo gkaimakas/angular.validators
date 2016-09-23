@@ -6,6 +6,8 @@
 
 Angular validation directives using [validator.js](https://www.npmjs.com/package/validator)
 
+# THIS PROJECT IS NO LONGER MAINTAINED. I WILL MERGE NEW PRs THOUGH
+
 ### Contents
 
 + [Install](#install)
