@@ -142,7 +142,7 @@ async-valid-response | string | validResponse(response)
     
 ### Validator service
 
-Angular validators exposes validatorjs as an angular service named validator. More on [validator.js](https://www.npmjs.com/package/validator)
+Angular validators exposes validatorjs as an angular service named `nodeValidator`. More on [validator.js](https://www.npmjs.com/package/validator)
 
 
 
