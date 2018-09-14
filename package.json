@@ -2,6 +2,7 @@
   "name": "angular.validators",
   "version": "4.4.2",
   "license": "MIT",
+  "main": "index.js",
   "devDependencies": {
     "chai": "^3.2.0",
     "grunt": "^0.4.5",
