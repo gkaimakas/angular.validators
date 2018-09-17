@@ -1,5 +1,8 @@
 # Changelog
 
+## v.4.4.3
+Minor Bug Fixes
+
 ## v.4.4.2
 Fixed a bug in the tests that caused them to fail. Also Happy holidays
 
